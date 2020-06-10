@@ -28,7 +28,7 @@ export default {
                 },
                 {
                     text: "娱乐",
-                    routerName: "login",
+                    routerName: "recreation",
                     id: 1
                 },
                 {
@@ -70,14 +70,39 @@ export default {
     }
 };
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
+html,
+body,
+ul,
+li,
+img,
+a,
+p,
+div,
+form,
+input {
+    padding: 0;
+    margin: 0;
+    /*设置盒模型*/
+    box-sizing: border-box;
+    /*去除移动端特有的点击高亮效果*/
+    -webkit-tap-highlight-color: transparent;
+}
+a,
+a:hover {
+    color: #666;
+    text-decoration: none;
+}
+li {
+    list-style: none;
+}
 .index {
     width: 100%;
     height: 100%;
     .content {
-        height: 93%;
         width: 100%;
-        background: rgb(238, 253, 207);
+        height: 93%;
+        // background: rgb(238, 253, 207);
     }
     .tab {
         position: relative;

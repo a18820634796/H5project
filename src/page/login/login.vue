@@ -1,24 +1,34 @@
 <template>
     <div class="login">
-        <div class="head">登录</div>
-        <div class="content">
-            <div class="loginMessage">
-                电话 ：
-                <div>
-                    <van-cell-group class="phone">
-                        <van-field :value="userName" class="phone" placeholder="请输入用户名" bind:change="onChange" />
-                    </van-cell-group>
+        <div id="loginContent">
+            <div class="head">登录</div>
+            <div class="content">
+                <van-cell-group>
+                    <van-field :value="userName" placeholder="请输入用户名" :border="false" bind:change="onChange" />
+                </van-cell-group>
+                <!-- <div class="loginMessage">
+                    电话 ：
+                    <div>
+                        <van-cell-group class="phone">
+                            <van-field v-model="userName" class="phone" placeholder="请输入用户名" bind:change="onChange" />
+                        </van-cell-group>
+                    </div>
                 </div>
-            </div>
-            <div class="loginMessage">
-                密码 ：
-                <div>
-                    <van-cell-group class="phone">
-                        <van-field class="phone" :value="password" placeholder="请输入密码" bind:change="onChange" />
-                    </van-cell-group>
+                <div class="loginMessage">
+                    密码 ：
+                    <div>
+                        <van-cell-group class="phone">
+                            <van-field class="phone" type="password" v-model="password" placeholder="请输入密码"
+                                bind:change="onChange" />
+                        </van-cell-group>
+                    </div>
+                </div> -->
+                <div class="loginBtn">
+                    <van-button :round="true" type="info" block style="width:200px" @click="getLogin">登录</van-button>
                 </div>
             </div>
         </div>
+
     </div>
 </template>
 <script>
@@ -36,50 +46,63 @@ export default {
             console.log(aa, "dss");
         },
         getLogin() {
-            const params = {
-                url: this.$api.login,
-                method: "get",
-                params: {
-                    username: "admin",
-                    password: "123"
-                }
-            };
-            console.log(this.$api);
-            this.$ajax(params).then(res => {
-                console.log(res);
-                sessionStorage.setItem("tokenId", res.data.tokenId);
-            });
+            console.log(this.userName, this.password);
+            // const params = {
+            //     url: this.$api.login,
+            //     method: "get",
+            //     params: {
+            //         username: "admin",
+            //         password: "123"
+            //     }
+            // };
+            // console.log(this.$api);
+            // this.$ajax(params).then(res => {
+            //     console.log(res);
+            //     sessionStorage.setItem("tokenId", res.data.tokenId);
+            // });
         }
     }
 };
 </script>
 <style lang="scss" scoped>
 .login {
-    background: rgb(130, 168, 53);
+    position: fixed;
     height: 100%;
-    // padding-top: 100px;
-    // .head {
-    //     color: white;
-    //     font-size: 18px;
-    //     line-height: 30px;
-    //     text-align: center;
-    // }
-    // .content {
-    //     height: 300px;
-    //     margin-top: 20px;
-    // }
-    // .loginMessage {
-    //     width: 70%;
-    //     margin: 0 auto;
-    //     display: flex;
-    //     flex-direction: row;
-    //     line-height: 45px;
-    //     margin-bottom: 15px;
-    //     font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-    //     .phone {
-    //         background-color: transparent;
-    //         width: 210px;
-    //     }
-    // }
+    width: 100%;
+}
+#loginContent {
+    width: 100%;
+    height: 93%;
+    background: rgb(241, 187, 187);
+    overflow: auto;
+    .head {
+        margin-top: 100px;
+        color: white;
+        font-size: 20px;
+        line-height: 30px;
+        text-align: center;
+    }
+    .content {
+        height: 300px;
+        margin-top: 40px;
+        .loginMessage {
+            width: 70%;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: row;
+            line-height: 45px;
+            margin-bottom: 25px;
+            font-family: "Franklin Gothic Medium", "Arial Narrow", Arial,
+                sans-serif;
+            .phone {
+                background-color: transparent;
+                width: 210px;
+            }
+        }
+        .loginBtn {
+            display: flex;
+            justify-content: center;
+        }
+    }
 }
 </style>

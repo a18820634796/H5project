@@ -2,36 +2,51 @@
     <div id="home">
         <!--顶部搜索-->
         <div class="fixationTitle">
-            <a href="" class="jd_logo"></a>
-            <form action="" class="jd_searchBox">
+            <a href=""
+               class="jd_logo"></a>
+            <form action=""
+                  class="jd_searchBox"
+                  @click="$router.push({name:'search'})">
                 <!--<span></span>-->
-                <input type="text" placeholder="请输入商品名称">
+                <input type="text"
+                       placeholder="请输入商品名称">
             </form>
-            <a href="javascript:;" class="jd_login">登录</a>
+            <a href="javascript:;"
+               class="jd_login">登录</a>
         </div>
         <!--轮播图-->
         <div class="jd_banner">
             <ul class="jd_bannerImg">
-                <li v-for="item in swiperData" :key="item.id">
-                    <img :src="item.url" alt="">
+                <li v-for="item in swiperData"
+                    :key="item.id">
+                    <img :src="item.url"
+                         alt="">
                 </li>
             </ul>
-            <ul class="jd_bannerIndicator" id="dianul">
-                <li v-for="item in swiperData" :key="item.id" @click="liClick(item.id,$event)"
+            <ul class="jd_bannerIndicator"
+                id="dianul">
+                <li v-for="item in swiperData"
+                    :key="item.id"
+                    @click="liClick(item.id,$event)"
                     :class="{active:swiperIndex==item.id+1}"></li>
             </ul>
         </div>
         <!--选择分类-->
         <div class="classify">
-            <div v-for="item in classify" :key="item.id" class="clearfix" @click="selectClassify">
-                <img :src="item.url" alt="">
+            <div v-for="item in classify"
+                 :key="item.id"
+                 class="clearfix"
+                 @click="selectClassify">
+                <img :src="item.url"
+                     alt="">
                 <p>{{item.text}}</p>
             </div>
         </div>
         <!--秒杀-->
         <div class="seckill">
             <div class="seckill-header">
-                <img src="../../assets/home/seckill-icon.png" alt="">
+                <img src="../../assets/home/seckill-icon.png"
+                     alt="">
                 <div class="handseckill">掌上秒杀</div>
                 <span>0</span>
                 <span>0</span>
@@ -44,8 +59,11 @@
                 <div class="moreSeckill">更多秒杀...</div>
             </div>
             <div class="seckill-content">
-                <div v-for="item in seckill" :key="item.id" class="commodity">
-                    <img :src="item.url" alt="">
+                <div v-for="item in seckill"
+                     :key="item.id"
+                     class="commodity">
+                    <img :src="item.url"
+                         alt="">
                     <p>{{item.money}}</p>
                     <p>{{item.text}}</p>
                 </div>
@@ -55,42 +73,69 @@
         <div class="supermarket">
             <p class="head">京东超市</p>
             <div class="content">
-                <a href="" class="a_d">
-                    <img src="../../assets/home/cp1.jpg" alt="" class="imgLeft topBot">
+                <a href=""
+                   class="a_d">
+                    <img src="../../assets/home/cp1.jpg"
+                         alt=""
+                         class="imgLeft topBot">
                 </a>
-                <a href="" class="a_d">
-                    <img src="../../assets/home/cp2.jpg" alt="" class="imgLeft topLeft">
+                <a href=""
+                   class="a_d">
+                    <img src="../../assets/home/cp2.jpg"
+                         alt=""
+                         class="imgLeft topLeft">
                 </a>
-                <a href="" class="a_d">
-                    <img src="../../assets/home/cp3.jpg" alt="" class="imgLeft topLeft">
-                </a>
-            </div>
-        </div>
-        <div class="supermarket">
-            <p class="head">京东超市</p>
-            <div class="content">
-                <a href="" class="a_d">
-                    <img src="../../assets/home/cp4.jpg" alt="" class="imgLeft topBot">
-                </a>
-                <a href="" class="a_d">
-                    <img src="../../assets/home/cp5.jpg" alt="" class="imgLeft topLeft">
-                </a>
-                <a href="" class="a_d">
-                    <img src="../../assets/home/cp6.jpg" alt="" class="imgLeft topLeft">
+                <a href=""
+                   class="a_d">
+                    <img src="../../assets/home/cp3.jpg"
+                         alt=""
+                         class="imgLeft topLeft">
                 </a>
             </div>
         </div>
         <div class="supermarket">
             <p class="head">京东超市</p>
             <div class="content">
-                <a href="" class="a_d">
-                    <img src="../../assets/home/cp1.jpg" alt="" class="imgLeft topBot">
+                <a href=""
+                   class="a_d">
+                    <img src="../../assets/home/cp4.jpg"
+                         alt=""
+                         class="imgLeft topBot">
                 </a>
-                <a href="" class="a_d">
-                    <img src="../../assets/home/cp2.jpg" alt="" class="imgLeft topLeft">
+                <a href=""
+                   class="a_d">
+                    <img src="../../assets/home/cp5.jpg"
+                         alt=""
+                         class="imgLeft topLeft">
                 </a>
-                <a href="" class="a_d">
-                    <img src="../../assets/home/cp3.jpg" alt="" class="imgLeft topLeft">
+                <a href=""
+                   class="a_d">
+                    <img src="../../assets/home/cp6.jpg"
+                         alt=""
+                         class="imgLeft topLeft">
+                </a>
+            </div>
+        </div>
+        <div class="supermarket">
+            <p class="head">京东超市</p>
+            <div class="content">
+                <a href=""
+                   class="a_d">
+                    <img src="../../assets/home/cp1.jpg"
+                         alt=""
+                         class="imgLeft topBot">
+                </a>
+                <a href=""
+                   class="a_d">
+                    <img src="../../assets/home/cp2.jpg"
+                         alt=""
+                         class="imgLeft topLeft">
+                </a>
+                <a href=""
+                   class="a_d">
+                    <img src="../../assets/home/cp3.jpg"
+                         alt=""
+                         class="imgLeft topLeft">
                 </a>
             </div>
         </div>
@@ -107,82 +152,13 @@ window.onload = function() {
         event.preventDefault();
     });
 };
+import obj from "./home";
 export default {
     data() {
         return {
-            swiperData: [
-                { id: 0, url: require("../../assets/home/l1.jpg") },
-                { id: 1, url: require("../../assets/home/l2.jpg") },
-                { id: 2, url: require("../../assets/home/l3.jpg") },
-                { id: 3, url: require("../../assets/home/l4.jpg") },
-                { id: 4, url: require("../../assets/home/l5.jpg") },
-                { id: 5, url: require("../../assets/home/l6.jpg") },
-                { id: 6, url: require("../../assets/home/l7.jpg") },
-                { id: 7, url: require("../../assets/home/l8.jpg") },
-                { id: 8, url: require("../../assets/home/l3.jpg") }
-            ],
-            classify: [
-                {
-                    id: 1,
-                    text: "商品分类",
-                    url: require("../../assets/home/nav_1.png")
-                },
-                {
-                    id: 2,
-                    text: "进口分类",
-                    url: require("../../assets/home/nav_2.png")
-                },
-                {
-                    id: 3,
-                    text: "充值话费",
-                    url: require("../../assets/home/nav_3.png")
-                },
-                {
-                    id: 4,
-                    text: "时尚佳品",
-                    url: require("../../assets/home/nav_4.png")
-                },
-                {
-                    id: 5,
-                    text: "娱乐玩物",
-                    url: require("../../assets/home/nav_5.png")
-                },
-                {
-                    id: 6,
-                    text: "领优惠卷",
-                    url: require("../../assets/home/nav_6.png")
-                },
-                {
-                    id: 7,
-                    text: "快递分类",
-                    url: require("../../assets/home/nav_7.png")
-                },
-                {
-                    id: 8,
-                    text: "收藏商品",
-                    url: require("../../assets/home/nav_8.png")
-                }
-            ],
-            seckill: [
-                {
-                    id: 1,
-                    url: require("../../assets/home/detail01.jpg"),
-                    money: "￥10.00",
-                    text: "￥20.00"
-                },
-                {
-                    id: 2,
-                    url: require("../../assets/home/detail01.jpg"),
-                    money: "￥10.00",
-                    text: "￥20.00"
-                },
-                {
-                    id: 3,
-                    url: require("../../assets/home/detail01.jpg"),
-                    money: "￥10.00",
-                    text: "￥20.00"
-                }
-            ],
+            swiperData: obj.swiperData,
+            classify: obj.classify,
+            seckill: obj.seckill,
             timeout: null,
             swiperIndex: 1
         };
@@ -276,7 +252,7 @@ export default {
         height: 40px;
         /*固定在顶部*/
         position: fixed;
-        background: rgba(233, 35, 34, 0);
+        background: rgb(197, 7, 7);
         z-index: 10;
         .jd_logo {
             width: 56px;
@@ -328,6 +304,7 @@ export default {
     //轮播图架构
     .jd_banner {
         width: 100%;
+        margin-top: 20px;
         // height: 250px;
         overflow: hidden;
         position: relative;

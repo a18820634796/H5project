@@ -4,7 +4,10 @@
             <div class="head">登录</div>
             <div class="content">
                 <van-cell-group>
-                    <van-field :value="userName" placeholder="请输入用户名" :border="false" bind:change="onChange" />
+                    <van-field :value="userName"
+                               placeholder="请输入用户名"
+                               :border="false"
+                               bind:change="onChange" />
                 </van-cell-group>
                 <!-- <div class="loginMessage">
                     电话 ：
@@ -24,7 +27,11 @@
                     </div>
                 </div> -->
                 <div class="loginBtn">
-                    <van-button :round="true" type="info" block style="width:200px" @click="getLogin">登录</van-button>
+                    <van-button :round="true"
+                                type="info"
+                                block
+                                style="width:200px"
+                                @click="getLogin">登录</van-button>
                 </div>
             </div>
         </div>

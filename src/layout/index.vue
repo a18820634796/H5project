@@ -4,8 +4,10 @@
             <router-view></router-view>
         </div>
         <div class="tab">
-            <div v-for="(item,index) in tab" :key="index" class="navigation"
-                :class="{'navigationHover':tabNum===item.id? true:false}">
+            <div v-for="item in tab"
+                 :key="item.id"
+                 class="navigation"
+                 :class="{'navigationHover':tabNum===item.id? true:false}">
                 <div @click="getRouter(item)">
                     {{item.text}}
                 </div>

@@ -34,6 +34,14 @@ module.exports = {
                 loaders: ['style', 'css', 'sass']
             },
             {
+                test: /\.svg$/,
+                loader: 'svg-sprite-loader',
+                include: [resolve('src/assets/icons')], //只对这里的文件进行处理
+                options: {
+                    symbolId: 'svg-[name]'
+                }
+            },
+            {
                 test: /\.vue$/,
                 loader: 'vue-loader',
                 options: vueLoaderConfig
@@ -46,6 +54,7 @@ module.exports = {
             {
                 test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
                 loader: 'url-loader',
+                exclude: [resolve('src/assets/icons')], //不对这里的文件进行处理
                 options: {
                     limit: 10000,
                     name: utils.assetsPath('img/[name].[hash:7].[ext]')

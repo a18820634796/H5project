@@ -1,10 +1,26 @@
 <template>
     <div class="search">
-        <p class="head" @click="$router.go(-1)">
-            <span class="goBack"></span>
+        <p class="head">
+            <span class="goBack" @click="$router.go(-1)">
+                <!-- <svg aria-hidden="true">
+                    <use :xlink:href="svg"></use>
+                </svg> -->
+                <svg-icon svg-name="alarm"></svg-icon>
+                <svg-icon svg-name="alarm-fill"></svg-icon>
+                <img src="../../assets/svg/alarm.svg">
+            </span>
         </p>
     </div>
 </template>
+<script>
+    export default {
+        methods: {
+            data() {
+                return {};
+            }
+        }
+    };
+</script>
 <style lang="scss" scoped>
     .search {
         width: 100%;
@@ -13,16 +29,17 @@
         .head {
             width: 100%;
             height: 30px;
-            background: rgba(172, 172, 172, 0.3);
+            // background: rgba(151, 151, 151, 0.3);
             display: flex;
             flex-direction: row;
             align-items: center;
 
             .goBack {
-                width: 20px;
-                height: 20px;
-                background: url('../../assets/icons/chevron-left.svg') no-repeat;
-                background-size: 100% 100%;
+                width: 60px;
+                height: 60px;
+                font-size: 30px;
+                color: rgb(55, 0, 255);
+                // background: url(../../assets/svg/chevron-left.svg) no-repeat;
             }
         }
     }

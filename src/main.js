@@ -10,10 +10,15 @@ import api from './api'
 import {
     ajax
 } from './utils/ajax'
+
+import '@/assets/icons'
+// import svgIcon from '@/components/svgIcon'
+// Vue.component('svg-icon', svgIcon)
+
 Vue.use(Vant)
 Vue.config.productionTip = false
 Vue.prototype.$api = api
-    /* eslint-disable no-new */
+/* eslint-disable no-new */
 new Vue({
     el: '#app',
     router,

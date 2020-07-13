@@ -15,9 +15,9 @@ export default new Router({
                     component: () => import('@/page/home')
                 },
                 {
-                    path: '/login',
-                    name: 'login',
-                    component: () => import('@/page/login/index')
+                    path: '/me',
+                    name: 'me',
+                    component: () => import('@/page/me/index')
                 },
                 {
                     path: '/recreation',
@@ -30,6 +30,11 @@ export default new Router({
             path: '/search',
             name: 'search',
             component: () => import('@/page/mainModules/search')
+        },
+        {
+            path: '/login',
+            name: 'login',
+            component: () => import('@/page/login/index')
         }
 
     ]

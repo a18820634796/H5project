@@ -7,7 +7,7 @@
                 <!--<span></span>-->
                 <input type="text" placeholder="请输入商品名称">
             </form>
-            <a href="javascript:;" class="jd_login">登录</a>
+            <span @click="$router.push('login')" class="jd_login">登录</span>
         </div>
         <!--轮播图-->
         <div class="jd_banner">
@@ -116,6 +116,13 @@
                 timeout: null,
                 swiperIndex: 1
             };
+        },
+        created() {
+            if (!localStorage.getItem('tokenID')) {
+                this.$router.push({
+                    name: 'login'
+                })
+            }
         },
         mounted() {
             console.log(document.body.clientWidth);

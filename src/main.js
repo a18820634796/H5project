@@ -6,10 +6,6 @@ import store from './store/store'
 import router from './router'
 import Vant from 'vant'
 import 'vant/lib/index.css'
-import api from './api'
-import {
-    ajax
-} from './utils/ajax'
 
 import '@/assets/icons'
 // import svgIcon from '@/components/svgIcon'
@@ -17,7 +13,6 @@ import '@/assets/icons'
 
 Vue.use(Vant)
 Vue.config.productionTip = false
-Vue.prototype.$api = api
 /* eslint-disable no-new */
 new Vue({
     el: '#app',
@@ -28,4 +23,25 @@ new Vue({
     },
     template: '<App/>'
 })
-Vue.prototype.$ajax = ajax
+
+// Vue.prototype.$axios = axios
+
+
+router.beforeEach((to, from, next) => {
+    console.log(router, to, from)
+    if (to.name === 'login') {
+        console.log(to.name)
+        next()
+    } else {
+        if (localStorage.getItem('tokenID')) {
+            next()
+        } else {
+            console.log('请先登录')
+            next({
+                path: '/login'
+            })
+        }
+    }
+
+
+})

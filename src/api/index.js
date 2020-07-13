@@ -1,6 +1,7 @@
-var baseUrl = 'http://192.168.0.144:8888/'
+var baseUrl = 'http://localhost:3000'
 
-var api = {
-    login: `${baseUrl}/01check.php`
+const axios = require('axios')
+
+exports.login = function(params) {
+    return axios.post(`${baseUrl}/login`, params)
 }
-export default api

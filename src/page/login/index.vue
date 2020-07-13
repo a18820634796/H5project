@@ -1,37 +1,24 @@
 <template>
     <div class="login">
         <div id="loginContent">
+            <div @click="$router.push('home')" class="goBack_home">返回首页</div>
             <div class="head">登录</div>
             <div class="content">
-                <van-cell-group>
-                    <van-field :value="userName"
-                               placeholder="请输入用户名"
-                               :border="false"
-                               bind:change="onChange" />
-                </van-cell-group>
-                <!-- <div class="loginMessage">
-                    电话 ：
-                    <div>
-                        <van-cell-group class="phone">
-                            <van-field v-model="userName" class="phone" placeholder="请输入用户名" bind:change="onChange" />
-                        </van-cell-group>
-                    </div>
+                <div class="content_username">
+                    <van-cell-group>
+                        <van-field v-model="userName" label="用户名 :" placeholder="请输入用户名" :border="false" bind:change="onChange" />
+                    </van-cell-group>
                 </div>
-                <div class="loginMessage">
-                    密码 ：
-                    <div>
-                        <van-cell-group class="phone">
-                            <van-field class="phone" type="password" v-model="password" placeholder="请输入密码"
-                                bind:change="onChange" />
-                        </van-cell-group>
-                    </div>
-                </div> -->
+                <div class="content_username">
+                    <van-cell-group>
+                        <van-field v-model="password" type="password" label="密码 :" placeholder="请输入密码" :border="false" bind:change="onChange" />
+                    </van-cell-group>
+                </div>
+                <div class="content_username">
+                    <a href="">用户注册</a>
+                </div>
                 <div class="loginBtn">
-                    <van-button :round="true"
-                                type="info"
-                                block
-                                style="width:200px"
-                                @click="getLogin">登录</van-button>
+                    <van-button :round="true" type="info" block style="width:200px" @click="getLogin">登录</van-button>
                 </div>
             </div>
         </div>
@@ -39,77 +26,105 @@
     </div>
 </template>
 <script>
-// import { login } from "@/api";
-export default {
-    data() {
-        return {
-            userName: "",
-            password: "",
-            code: ""
-        };
-    },
-    methods: {
-        onChange(aa) {
-            console.log(aa, "dss");
+    import api from "@/api";
+    import axios from 'axios'
+    export default {
+        data() {
+            return {
+                userName: "",
+                password: "",
+                code: ""
+            };
         },
-        getLogin() {
-            console.log(this.userName, this.password);
-            // const params = {
-            //     url: this.$api.login,
-            //     method: "get",
-            //     params: {
-            //         username: "admin",
-            //         password: "123"
-            //     }
-            // };
-            // console.log(this.$api);
-            // this.$ajax(params).then(res => {
-            //     console.log(res);
-            //     sessionStorage.setItem("tokenId", res.data.tokenId);
-            // });
-        }
-    }
-};
-</script>
-<style lang="scss" scoped>
-.login {
-    position: fixed;
-    height: 100%;
-    width: 100%;
-}
-#loginContent {
-    width: 100%;
-    height: 93%;
-    background: rgb(241, 187, 187);
-    overflow: auto;
-    .head {
-        margin-top: 100px;
-        color: white;
-        font-size: 20px;
-        line-height: 30px;
-        text-align: center;
-    }
-    .content {
-        height: 300px;
-        margin-top: 40px;
-        .loginMessage {
-            width: 70%;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: row;
-            line-height: 45px;
-            margin-bottom: 25px;
-            font-family: "Franklin Gothic Medium", "Arial Narrow", Arial,
-                sans-serif;
-            .phone {
-                background-color: transparent;
-                width: 210px;
+        methods: {
+            onChange(aa) {
+                console.log(aa, "dss");
+            },
+            getLogin() {
+                console.log(this.userName, this.password);
+                console.log(api)
+                const reqData = {
+                    username: this.userName,
+                    password: this.password
+                }
+                api.login(reqData).then((res) => {
+                    console.log(res)
+                    localStorage.setItem('tokenID', res.data.tokenID)
+                    // this.$router.tokenID = res.data.tokenID
+                    if (res.data.content === '登录成功') {
+                        this.$router.push('home')
+                    }
+                })
             }
         }
-        .loginBtn {
+    };
+</script>
+<style lang="scss" scoped>
+    .login {
+        // position: fixed;
+        height: 100%;
+        width: 100%;
+    }
+
+    .goBack_home {
+        display: inline-block;
+        width: 80px;
+        line-height: 30px;
+        border: 10px;
+        text-align: center;
+        background: lightblue;
+        border-radius: 15px;
+        margin-top: 5px;
+        margin-left: 5px;
+        color: white;
+    }
+
+    #loginContent {
+        width: 100%;
+        height: 100%;
+        background: rgba(201, 201, 201, 0.5);
+        overflow: auto;
+
+        .head {
+            margin-top: 100px;
+            color: white;
+            font-size: 20px;
+            line-height: 30px;
+            text-align: center;
+        }
+
+        .content {
+            height: 200px;
+            margin-top: 20px;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
+            justify-content: space-between;
+
+            .content_username {
+                width: 80%;
+                margin: 0 auto;
+            }
+
+            .loginMessage {
+                width: 70%;
+                margin: 0 auto;
+                display: flex;
+                flex-direction: row;
+                line-height: 45px;
+                margin-bottom: 25px;
+                font-family: "Franklin Gothic Medium", "Arial Narrow", Arial,
+                    sans-serif;
+
+                .phone {
+                    background-color: transparent;
+                    width: 210px;
+                }
+            }
+
+            .loginBtn {
+                display: flex;
+                justify-content: center;
+            }
         }
     }
-}
 </style>

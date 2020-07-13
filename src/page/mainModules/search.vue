@@ -27,7 +27,6 @@
         height: 100%;
 
         .head {
-            width: 100%;
             height: 30px;
             // background: rgba(151, 151, 151, 0.3);
             display: flex;

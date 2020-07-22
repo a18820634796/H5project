@@ -7,7 +7,7 @@
                 </svg> -->
                 <svg-icon svg-name="alarm"></svg-icon>
                 <svg-icon svg-name="alarm-fill"></svg-icon>
-                <img src="../../assets/svg/alarm.svg">
+                <!-- <img src="../../assets/svg/alarm.svg"> -->
             </span>
         </p>
     </div>

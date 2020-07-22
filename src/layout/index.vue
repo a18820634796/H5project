@@ -40,11 +40,6 @@
                 ]
             };
         },
-        created() {},
-        mounted() {
-            document.getElementsByClassName("index")[0].style.zoom =
-                document.documentElement.clientWidth / 375;
-        },
         methods: {
             getRouter(item) {
                 // console.log(item.routerName)
@@ -116,7 +111,7 @@
             position: relative;
             height: 7%;
             width: 100%;
-            border-top: solid 1px rgb(190, 190, 190);
+            border-top: solid 1px rgba(190, 190, 190, 0.5);
             display: flex;
             flex-direction: row;
         }

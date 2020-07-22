@@ -18,7 +18,9 @@
                     <a href="">用户注册</a>
                 </div>
                 <div class="loginBtn">
-                    <van-button :round="true" type="info" block style="width:200px" @click="getLogin">登录</van-button>
+                    <!-- <van-button :round="true" type="info" block style="width:200px" @click="getLogin">登录</van-button> 
+                    -->
+                    <div>{{Notify({ type: 'primary', message: '通知内容' })}}</div>
                 </div>
             </div>
         </div>
@@ -27,22 +29,27 @@
 </template>
 <script>
     import api from "@/api";
-    import axios from 'axios'
+    import {
+        Notify
+    } from 'vant';
     export default {
+        components: {
+            [Notify.Component.name]: Notify.Component,
+        },
         data() {
             return {
                 userName: "",
                 password: "",
-                code: ""
+                code: "",
+                show: false
             };
         },
         methods: {
             onChange(aa) {
                 console.log(aa, "dss");
             },
+            //登录
             getLogin() {
-                console.log(this.userName, this.password);
-                console.log(api)
                 const reqData = {
                     username: this.userName,
                     password: this.password
@@ -55,7 +62,7 @@
                         this.$router.push('home')
                     }
                 })
-            }
+            },
         }
     };
 </script>
@@ -124,6 +131,19 @@
             .loginBtn {
                 display: flex;
                 justify-content: center;
+
+                .wrapper {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    height: 100%;
+                }
+
+                .block {
+                    width: 120px;
+                    height: 120px;
+                    background-color: #fff;
+                }
             }
         }
     }
